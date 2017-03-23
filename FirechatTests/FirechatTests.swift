@@ -55,7 +55,8 @@ class FirechatTests: XCTestCase {
     func testSignIn() {
         let exp = expectation(description: "signIn")
         let email = randomEmail(length: 8) + "@example.com"
-        FirebaseManager.signUp(email: email, password: "flatiron") { (user, success) in
+        let password = "flatiron"
+        FirebaseManager.signUp(email: email, password: password) { (user, success) in
             XCTAssertTrue(success, "Login Success")
             FirebaseManager.logOut(completion: { (success) in
                 XCTAssertTrue(success, "Logged out")
